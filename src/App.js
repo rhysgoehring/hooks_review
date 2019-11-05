@@ -2,11 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Toggle from './Toggle';
 
 const App = () => {
-  const [name, setName] = useState('');
-  useEffect(() => {
-    document.title = name;
-  }, [name]);
-
   return (
     <div className="main-wrapper">
       <h1>Level Up Dishes</h1>
@@ -26,5 +21,13 @@ const App = () => {
     </div>
   );
 };
+
+function useTitleInput(initalValue) {
+  const [value, setValue] = useState('');
+  useEffect(() => {
+    document.title = value;
+  }, [value]);
+  return [value, setValue];
+}
 
 export default App;
