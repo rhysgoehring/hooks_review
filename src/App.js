@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Toggle from './Toggle';
-import useTitleInput from "./hooks/useTitleInput";
+import useTitleInput from './hooks/useTitleInput';
 
 const App = () => {
   const [name, setName] = useTitleInput('');
+  const ref = useRef();
+
   return (
-    <div className="main-wrapper">
-      <h1>Level Up Dishes</h1>
+    <div className="main-wrapper" ref={ref}>
+      <h1 onClick={() => ref.current.classList.add('new-fake_class')}>
+        Level Up Dishes
+      </h1>
       <Toggle />
       <form
         onSubmit={e => {
@@ -23,6 +27,5 @@ const App = () => {
     </div>
   );
 };
-
 
 export default App;
