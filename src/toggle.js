@@ -1,22 +1,35 @@
-import React, { Component } from "react";
+import React, { useState } from 'react';
 
-export default class Refactor extends Component {
-  state = {
-    isToggled: false
-  };
+const Toggle = () => {
+  return (
+    <div>
+      <button />
+      <h2>Hello</h2>
+    </div>
+  );
+};
 
-  toggle = () => {
-    this.setState(state => {
-      return { isToggled: !state.isToggled };
-    });
-  };
+export default Toggle;
 
-  render() {
-    return (
-      <div>
-        <button onClick={this.toggle}>Toggle</button>
-        {this.state.isToggled && <h2>Hello!</h2>}
-      </div>
-    );
-  }
-}
+// import React, { Component } from "react";
+
+// export default class Refactor extends Component {
+//   state = {
+//     isToggled: false
+//   };
+
+//   toggle = () => {
+//     this.setState(state => {
+//       return { isToggled: !state.isToggled };
+//     });
+//   };
+
+//   render() {
+//     return (
+//       <div>
+//         <button onClick={this.toggle}>Toggle</button>
+//         {this.state.isToggled && <h2>Hello!</h2>}
+//       </div>
+//     );
+//   }
+// }
