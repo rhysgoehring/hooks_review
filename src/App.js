@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, createContext } from 'react';
 import Toggle from './Toggle';
 import useTitleInput from './hooks/useTitleInput';
 
-const UserContext = createContext();
+export const UserContext = createContext();
 
 const App = () => {
   const [name, setName] = useTitleInput('');
