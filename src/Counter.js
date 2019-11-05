@@ -6,11 +6,11 @@ function reducer(state, action) {
   switch (action.type) {
     case 'add':
       return {
-        count: state.count + 1
+        count: state.count + action.value
       };
     case 'subtract':
       return {
-        count: state.count - 1
+        count: state.count - action.value
       };
     case 'reset':
       return {
@@ -27,8 +27,10 @@ const Counter = () => {
   return (
     <div>
       <h3>{state.count}</h3>
-      <button onClick={() => dispatch({ type: 'add' })}>+</button>
-      <button onClick={() => dispatch({ type: 'subtract' })}>-</button>
+      <button onClick={() => dispatch({ type: 'add', value: 10 })}>+</button>
+      <button onClick={() => dispatch({ type: 'subtract', value: 10 })}>
+        -
+      </button>
       <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
     </div>
   );
