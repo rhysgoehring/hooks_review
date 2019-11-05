@@ -27,9 +27,9 @@ const Counter = () => {
   return (
     <div>
       <h3>{state.count}</h3>
-      <button>+</button>
-      <button>-</button>
-      <button>Reset</button>
+      <button onClick={() => dispatch({ type: 'add' })}>+</button>
+      <button onClick={() => dispatch({ type: 'subtract' })}>-</button>
+      <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
     </div>
   );
 };
