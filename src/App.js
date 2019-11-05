@@ -2,18 +2,12 @@ import React, { useState, useEffect, useRef, createContext } from 'react';
 import Toggle from './Toggle';
 import useTitleInput from './hooks/useTitleInput';
 
-export const UserContext = createContext();
 
 const App = () => {
   const [name, setName] = useTitleInput('');
   const ref = useRef();
 
   return (
-    <UserContext.Provider
-      value={{
-        user: true
-      }}
-    >
       <div className="main-wrapper" ref={ref}>
         <h1 onClick={() => ref.current.classList.add('new-fake_class')}>
           Level Up Dishes
@@ -32,7 +26,6 @@ const App = () => {
           <button>Submit</button>
         </form>
       </div>
-    </UserContext.Provider>
   );
 };
 
