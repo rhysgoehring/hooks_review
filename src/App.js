@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Toggle from './Toggle';
+import useTitleInput from "./hooks/useTitleInput";
 
 const App = () => {
   const [name, setName] = useTitleInput('');
@@ -23,12 +24,5 @@ const App = () => {
   );
 };
 
-function useTitleInput(initialValue) {
-  const [value, setValue] = useState(initialValue);
-  useEffect(() => {
-    document.title = value;
-  }, [value]);
-  return [value, setValue];
-}
 
 export default App;
