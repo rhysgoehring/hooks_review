@@ -19,7 +19,7 @@ const App = () => {
   // This useEffect will only run when the "name" piece of state changes:
   useEffect(() => {
     fetchDishes();
-  }, [name]);
+  }, []);
 
   return (
     <div className="main-wrapper" ref={ref}>
