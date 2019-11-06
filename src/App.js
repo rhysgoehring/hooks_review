@@ -9,7 +9,6 @@ const App = () => {
   const [dishes, setDishes] = useState([]);
 
   const fetchDishes = async () => {
-    console.log('fetchDishes called!');
     const res = await fetch(
       'https://my-json-server.typicode.com/leveluptuts/fakeapi/dishes'
     );
@@ -17,10 +16,10 @@ const App = () => {
     setDishes(data);
   };
 
-
+  // This useEffect will only run when the "name" piece of state changes:
   useEffect(() => {
     fetchDishes();
-  }, []);
+  }, [name]);
 
   return (
     <div className="main-wrapper" ref={ref}>
