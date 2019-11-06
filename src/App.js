@@ -18,9 +18,6 @@ const App = () => {
   };
 
 
-  /* Adding an empty array as the second arg to useEffect essentially
-     turns this useEffect into a componentDidMount lifecycle event
-  */
   useEffect(() => {
     fetchDishes();
   }, []);
