@@ -17,9 +17,9 @@ const App = () => {
     setDishes(data);
   };
 
-  // Right now this useEffect makes our api call repeatedly, will fix in next section:
+
   useEffect(() => {
-    fetchDishes();
+    // fetchDishes();
   });
 
   return (
