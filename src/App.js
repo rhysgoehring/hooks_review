@@ -5,10 +5,11 @@ import useTitleInput from './hooks/useTitleInput';
 const App = () => {
   const [name, setName] = useTitleInput('');
   const ref = useRef();
-  
+
   const [dishes, setDishes] = useState([]);
 
   const fetchDishes = async () => {
+    console.log('fetchDishes called!');
     const res = await fetch(
       'https://my-json-server.typicode.com/leveluptuts/fakeapi/dishes'
     );
@@ -16,6 +17,7 @@ const App = () => {
     setDishes(data);
   };
 
+  // Right now this useEffect makes our api call repeatedly, will fix in next section:
   useEffect(() => {
     fetchDishes();
   });
