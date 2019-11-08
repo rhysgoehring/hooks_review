@@ -7,7 +7,7 @@ const Toggle = () => {
   return (
     <div>
       <button onClick={() => setToggled(!isToggled)}>Toggle</button>
-      {isToggled && <DishForm />}
+      {isToggled && <DishForm setToggled={setToggled} />}
     </div>
   );
 };

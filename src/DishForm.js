@@ -2,12 +2,12 @@ import React, { useRef } from 'react';
 import useBodyScrollLock from './hooks/bodyScrollLock';
 import useOnClickOutside from './hooks/useOnClickOutside';
 
-const DishForm = () => {
+const DishForm = ({ setToggled }) => {
   const ref = useRef();
 
   useBodyScrollLock();
 
-  useOnClickOutside(ref);
+  useOnClickOutside(ref, setToggled);
 
   return (
     <div className="dish-card" ref={ref}>
