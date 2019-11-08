@@ -4,7 +4,11 @@ import { useEffect } from 'react';
 
 function useOnClickOutside(ref) {
   useEffect(() => {
-    console.log('ref.current', ref.current);
+    const listener = () => {
+      console.log('ref.current', ref.current);
+    };
+    document.addEventListener('mousedown', listener);
+    document.addEventListener('touchstart', listener);
     // Cleanup:
     return () => {};
   }, []);
