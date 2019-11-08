@@ -10,7 +10,10 @@ function useOnClickOutside(ref) {
     document.addEventListener('mousedown', listener);
     document.addEventListener('touchstart', listener);
     // Cleanup:
-    return () => {};
+    return () => {
+      document.removeEventListener('mousedown', listener);
+      document.removeEventListener('touchstart', listener);
+    };
   }, []);
 }
 
