@@ -7,7 +7,7 @@ const DishForm = ({ setToggled }) => {
 
   useBodyScrollLock();
 
-  useOnClickOutside(ref, setToggled);
+  useOnClickOutside(ref, () => setToggled(false));
 
   return (
     <div className="dish-card" ref={ref}>
