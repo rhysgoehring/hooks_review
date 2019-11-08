@@ -1,25 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Toggle from './Toggle';
 import useTitleInput from './hooks/useTitleInput';
+import useAbortableFetch from 'use-abortable-fetch';
 
 const App = () => {
   const [name, setName] = useTitleInput('');
   const ref = useRef();
 
-  const [dishes, setDishes] = useState([]);
+  const { data, loading } = useAbortableFetch(
+    'https://my-json-server.typicode.com/leveluptuts/fakeapi/dishes'
+  );
 
-  const fetchDishes = async () => {
-    const res = await fetch(
-      'https://my-json-server.typicode.com/leveluptuts/fakeapi/dishes'
-    );
-    const data = await res.json();
-    setDishes(data);
-  };
+  console.log('data', data);
 
-  // This useEffect will only run when the "name" piece of state changes:
-  useEffect(() => {
-    fetchDishes();
-  }, []);
+  if (!data) return null;
 
   return (
     <div className="main-wrapper" ref={ref}>
@@ -39,7 +33,7 @@ const App = () => {
         />
         <button>Submit</button>
       </form>
-      {dishes.map(dish => (
+      {data.map(dish => (
         <article className="dish-card dish-card--withImage">
           <h3>{dish.name}</h3>
           <p>{dish.desc}</p>
