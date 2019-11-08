@@ -7,7 +7,7 @@ function useOnClickOutside(ref) {
     const listener = event => {
       // Check to see if the click is inside of the element we want to use:
       if (!ref.current || ref.current.contains(event.target))
-        console.log('ref.current', ref.current);
+        return ;
     };
     document.addEventListener('mousedown', listener);
     document.addEventListener('touchstart', listener);
